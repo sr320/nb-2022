@@ -1,0 +1,24 @@
+---
+title: "Getting Duck RNA-seq"
+output: html_document
+---
+
+
+need to get stuff together (AGAIN)
+https://sr320.github.io/Illumina-Summary/
+
+
+NOVA-seq
+RNASeq libraries (PE- 300bp insert) - 5 libraries
+
+Library	Reads
+NR005-JuvOA	78,147.00
+NR006-Gonad	6,473,873.00
+NR012-Ctenidia	669,693.00
+NR019-JuvAmb	68,487.00
+NR-21-Larvae-d5	7,613,170.00
+
+![pic](http://eagle.fish.washington.edu/cnidarian/skitch/Screenshot_9_15_17__11_03_AM_1F6C4D6E.png)
+
+
+
