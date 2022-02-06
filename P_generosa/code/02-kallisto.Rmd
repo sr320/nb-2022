@@ -8,6 +8,43 @@ output: html_document
 index -i /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/genome/Panopea-generosa-v1.0.index \
 /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/genome/Panopea-generosa-v1.0.fa
 ```
+```{bash}
+/home/shared/kallisto/kallisto \
+quant
+```
 
 
+
+
+```{bash}
+find /home/shared/8TB_HDD_01/sr320/ncbi/*_1.fastq \
+| xargs basename -s _1.fastq | xargs -I{} /home/shared/kallisto/kallisto \
+quant -i /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/data/transcriptome_v5.idx \
+-o /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/{} \
+-t 40 \
+/home/shared/8TB_HDD_01/sr320/ncbi/{}_1.fastq /home/shared/8TB_HDD_01/sr320/ncbi/{}_2.fastq
+```
+
+
+```{bash}
+perl /home/shared/trinityrnaseq-v2.12.0/util/abundance_estimates_to_matrix.pl \
+--est_method kallisto \
+    --gene_trans_map none \
+    --out_prefix /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/kallisto-0206 \
+    --name_sample_by_basedir \
+     /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/SRR12207404/abundance.tsv \
+     /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/SRR12207405/abundance.tsv \
+     /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/SRR12207406/abundance.tsv \
+     /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/SRR12207407/abundance.tsv \
+     /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/SRR12212519/abundance.tsv \
+     /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/SRR12218868/abundance.tsv \
+     /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/SRR12218869/abundance.tsv \
+     /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/SRR12218870/abundance.tsv \
+     /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/SRR12226692/abundance.tsv \
+     /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/SRR12226693/abundance.tsv \
+     /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/SRR12227929/abundance.tsv \
+     /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/SRR12227930/abundance.tsv \
+     /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/SRR12227931/abundance.tsv \
+     /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/SRR8788211/abundance.tsv 
+```     
 
