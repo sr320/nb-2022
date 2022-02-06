@@ -1,0 +1,29 @@
+---
+title: "01-bowtie"
+output: html_document
+---
+
+
+```{bash}
+bb/home/shared/bowtie2-2.4.4-linux-x86_64/bowtie2-build \
+/home/shared/8TB_HDD_01/sr320/github/nb-2022/C_gigas/data/GCF_902806645.1_cgigas_uk_roslin_v1_genomic.fa \
+/home/shared/8TB_HDD_01/sr320/github/nb-2022/C_gigas/data/roslin.bowtie
+```
+
+```{bash}
+/home/shared/bowtie2-2.4.4-linux-x86_64/bowtie2 \
+-x /home/shared/8TB_HDD_01/sr320/github/nb-2022/C_gigas/data/roslin.bowtie \
+-1 /home/shared/8TB_HDD_01/sr320/ncbi/SRR12227929_1.fastq \
+-2 /home/shared/8TB_HDD_01/sr320/ncbi/SRR12227929_2.fastq \
+-p 40 \
+--very-sensitive-local  \
+-S /home/shared/8TB_HDD_01/sr320/github/nb-2022/C_gigas/analyses/SRR12227929.sam
+```
+
+```{bash}
+/home/shared/samtools-1.12/samtools view -bS /home/shared/8TB_HDD_01/sr320/github/nb-2022/C_gigas/analyses/SRR12227929.sam \
+| /home/shared/samtools-1.12/samtools sort -o /home/shared/8TB_HDD_01/sr320/github/nb-2022/C_gigas/analyses/SRR12227929.bam
+
+/home/shared/samtools-1.12/samtools index /home/shared/8TB_HDD_01/sr320/github/nb-2022/C_gigas/analyses/SRR12227929.bam
+```
+

@@ -7,6 +7,27 @@ output: html_document
 need to get stuff together (AGAIN)
 https://sr320.github.io/Illumina-Summary/
 
+see also 
+https://robertslab.github.io/sams-notebook/2021/07/12/Summary-Geoduck-RNAseq-Data.html
+
+
+Run	BioSample	Experiment	Library_ID	Sample_Name	Tissue/Treatment	Sequencer
+SRR12218868	SAMN15524261	SRX8729323	Geoduck-heart-RNA	geoduck-20150811-heart	heart	HiSeq 4000
+SRR12218869	SAMN15524260	SRX8729322	Geoduck-gonad-RNA	geoduck-20150811-gonad	gonad	HiSeq 4000
+SRR12218870	SAMN15524251	SRX8729321	Geoduck-ctenidia-RNA	geoduck-20150811-ctenidia	ctenidia	HiSeq 4000
+SRR12226692	SAMN15524260	SRX8735427	NR006	geoduck-20150811-gonad	gonad	NovaSeq 6000
+SRR12226693	SAMN15524251	SRX8735426	NR012	geoduck-20150811-ctenidia	ctenidia	NovaSeq 6000
+SRR12207404	SAMN15517239	SRX8718216	EPI_124	EPI_124	juvenile(ambient)	HiSeq 4000
+SRR12207405	SAMN15517238	SRX8718215	EPI_123	EPI_123	juvenile(ambient)	HiSeq 4000
+SRR12207406	SAMN15517237	SRX8718214	EPI_116	EPI_116	juvenile(super-low)	HiSeq 4000
+SRR12207407	SAMN15517236	SRX8718213	EPI_115	EPI_115	juvenile(super-low)	HiSeq 4000
+SRR12227930	SAMN15517239	SRX8736520	NR019	EPI_124	juvenile(ambient)	NovaSeq 6000
+SRR12227931	SAMN15517237	SRX8736519	NR005	EPI_116	juvenile(super-low)	NovaSeq 6000
+SRR12212519	SAMN11259647	SRX8723123	EPI_99	EPI_99	10k day 5, post-fertilization larvae	HiSeq 4000
+SRR12227929	SAMN11259647	SRX8736518	NR021	EPI_99	10k day 5, post-fertilization larvae	NovaSeq 6000
+SRR8788211	SAMN11259647	SRX5578033	NR021	EPI_99	10k day 5, post-fertilization larvae	NovaSeq 6000
+
+
 
 NOVA-seq
 RNASeq libraries (PE- 300bp insert) - 5 libraries
@@ -20,5 +41,109 @@ NR-21-Larvae-d5	7,613,170.00
 
 ![pic](http://eagle.fish.washington.edu/cnidarian/skitch/Screenshot_9_15_17__11_03_AM_1F6C4D6E.png)
 
+In theory alanine has something
+
+http://owl.fish.washington.edu/halfshell/bu-alanine-wd/17-09-15/multiqc_report.html 
+
+Looking to match these
+
+```
+-rwxrwxrwx  1 sr320  staff   3.4M Sep  7 10:47 NR005_S4_L001_R1_001.fastq.gz
+-rwxrwxrwx  1 sr320  staff   3.5M Sep  7 10:47 NR005_S4_L001_R2_001.fastq.gz
+-rwxrwxrwx  1 sr320  staff   2.8M Sep  7 11:48 NR005_S4_L002_R1_001.fastq.gz
+-rwxrwxrwx  1 sr320  staff   2.9M Sep  7 11:48 NR005_S4_L002_R2_001.fastq.gz
+-rwxrwxrwx  1 sr320  staff   262M Sep  7 10:49 NR006_S3_L001_R1_001.fastq.gz
+-rwxrwxrwx  1 sr320  staff   270M Sep  7 10:50 NR006_S3_L001_R2_001.fastq.gz
+-rwxrwxrwx  1 sr320  staff   217M Sep  7 11:48 NR006_S3_L002_R1_001.fastq.gz
+-rwxrwxrwx  1 sr320  staff   225M Sep  7 11:49 NR006_S3_L002_R2_001.fastq.gz
+-rwxrwxrwx  1 sr320  staff    25M Sep  7 10:51 NR012_S1_L001_R1_001.fastq.gz
+-rwxrwxrwx  1 sr320  staff    26M Sep  7 10:51 NR012_S1_L001_R2_001.fastq.gz
+-rwxrwxrwx  1 sr320  staff    27M Sep  7 11:49 NR012_S1_L002_R1_001.fastq.gz
+-rwxrwxrwx  1 sr320  staff    29M Sep  7 11:49 NR012_S1_L002_R2_001.fastq.gz
+-rwxrwxrwx  1 sr320  staff   4.4M Sep  7 10:51 NR019_S7_L001_R1_001.fastq.gz
+-rwxrwxrwx  1 sr320  staff   4.5M Sep  7 10:51 NR019_S7_L001_R2_001.fastq.gz
+-rwxrwxrwx  1 sr320  staff   2.4M Sep  7 11:49 NR019_S7_L002_R1_001.fastq.gz
+-rwxrwxrwx  1 sr320  staff   2.4M Sep  7 11:49 NR019_S7_L002_R2_001.fastq.gz
+-rwxrwxrwx  1 sr320  staff   318M Sep  7 10:51 NR021_S8_L001_R1_001.fastq.gz
+-rwxrwxrwx  1 sr320  staff   333M Sep  7 10:51 NR021_S8_L001_R2_001.fastq.gz
+-rwxrwxrwx  1 sr320  staff   264M Sep  7 11:51 NR021_S8_L002_R1_001.fastq.gz
+-rwxrwxrwx  1 sr320  staff   275M Sep  7 11:52 NR021_S8_L002_R2_001.fastq.gz
+```
 
 
+
+
+
+---
+
+
+
+HiSeq files
+
+Geoduck-ctenidia-RNA
+Geoduck-heart-RNA
+Geoduck-gonad-RNA
+Geoduck-juvenile-ambient-exposure-RNA-EPI-123
+Geoduck-juvenile-ambient-exposure-RNA-EPI-124
+Geoduck-juvenile-OA-exposure-RNA-EPI-115
+Geoduck-juvenile-OA-exposure-RNA-EPI-116
+Geoduck-larvae-day5-RNA-EPI-99
+
+
+---
+
+Seem to have these
+
+Run	BioSample	Experiment	Library_ID	Sample_Name	Tissue/Treatment	Sequencer
+SRR12218868	SAMN15524261	SRX8729323	Geoduck-heart-RNA	geoduck-20150811-heart	heart	HiSeq 4000
+SRR12218869	SAMN15524260	SRX8729322	Geoduck-gonad-RNA	geoduck-20150811-gonad	gonad	HiSeq 4000
+SRR12218870	SAMN15524251	SRX8729321	Geoduck-ctenidia-RNA	geoduck-20150811-ctenidia	ctenidia	HiSeq 4000
+SRR12226692	SAMN15524260	SRX8735427	NR006	geoduck-20150811-gonad	gonad	NovaSeq 6000
+SRR12226693	SAMN15524251	SRX8735426	NR012	geoduck-20150811-ctenidia	ctenidia	NovaSeq 6000
+SRR12207404	SAMN15517239	SRX8718216	EPI_124	EPI_124	juvenile(ambient)	HiSeq 4000
+SRR12207405	SAMN15517238	SRX8718215	EPI_123	EPI_123	juvenile(ambient)	HiSeq 4000
+SRR12207406	SAMN15517237	SRX8718214	EPI_116	EPI_116	juvenile(super-low)	HiSeq 4000
+SRR12207407	SAMN15517236	SRX8718213	EPI_115	EPI_115	juvenile(super-low)	HiSeq 4000
+SRR12227930	SAMN15517239	SRX8736520	NR019	EPI_124	juvenile(ambient)	NovaSeq 6000
+SRR12227931	SAMN15517237	SRX8736519	NR005	EPI_116	juvenile(super-low)	NovaSeq 6000
+SRR12212519	SAMN11259647	SRX8723123	EPI_99	EPI_99	10k day 5, post-fertilization larvae	HiSeq 4000
+SRR12227929	SAMN11259647	SRX8736518	NR021	EPI_99	10k day 5, post-fertilization larvae	NovaSeq 6000
+SRR8788211	SAMN11259647	SRX5578033	NR021	EPI_99	10k day 5, post-fertilization larvae	NovaSeq 6000
+
+
+
+
+```
+SRR10800475_1.fastq  SRR11962067_1.fastq  SRR322877_1.fastq
+SRR10800475_2.fastq  SRR11962067_2.fastq  SRR322877_2.fastq
+```
+
+
+```{bash}
+/home/shared/sratoolkit.2.11.2-ubuntu64/bin/fasterq-dump --help
+
+```
+
+
+```{bash}
+/home/shared/sratoolkit.2.11.2-ubuntu64/bin/fasterq-dump \
+--outdir /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/data \
+SRR12218869
+
+```
+
+-p
+
+\
+SRR12218870 \
+SRR12226692 \
+SRR12226693 \
+SRR12207404 \
+SRR12207405 \
+SRR12207406 \
+SRR12207407 \
+SRR12227930 \
+SRR12227931 \
+SRR12212519 \
+SRR12227929 \
+SRR8788211
