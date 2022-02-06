@@ -48,3 +48,134 @@ perl /home/shared/trinityrnaseq-v2.12.0/util/abundance_estimates_to_matrix.pl \
      /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/SRR8788211/abundance.tsv 
 ```     
 
+```{r}
+library(tidyverse)
+```
+
+
+```{r}
+du <- read.delim("../analyses/kallisto-0206.isoform.counts.matrix", header = TRUE, sep = '\t')
+```
+
+```{r}
+ggplot(du, aes(x = SRR12207404)) +
+  geom_histogram() +
+  scale_y_log10() +
+  xlim(0, 100000) 
+  #ylim(0, 100)
+```
+
+```{r}
+ggplot(du, aes(x = SRR12207405)) +
+  geom_histogram() +
+  scale_y_log10() +
+  xlim(0, 100000) 
+  #ylim(0, 100)
+```
+
+```{r}
+ggplot(du, aes(x = SRR12207406)) +
+  geom_histogram(bins = 100) +
+  scale_y_log10() +
+  xlim(0, 100000) 
+  #ylim(0, 100)
+```
+
+```{r}
+ggplot(du, aes(x = SRR12207407)) +
+  geom_histogram(bins = 100) +
+  scale_y_log10() +
+  xlim(0, 100000) 
+  #ylim(0, 100)
+```
+
+
+
+# plot them all
+
+```{r}
+dul <- pivot_longer(du, cols = starts_with("SRR"),
+                       names_to = "library") 
+
+```
+
+
+
+```{r}
+ggplot(data = dul, mapping = aes(x = value)) +
+  geom_boxplot() +
+  facet_wrap(~library)
+
+```
+
+```{r}
+ggplot(dul, aes(library, value)) +
+  geom_boxplot(color = "blue") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5))
+```
+
+```{r}
+ggplot(dul, aes(library, value)) +
+  geom_boxplot(color = "blue") +
+  scale_y_log10() 
+  #theme(axis.text.x = element_text(angle = 90, vjust = 0.5))
+```
+
+
+
+
+```{r}
+ggplot(dul, aes(x = value)) +
+  geom_histogram(bins = 100) +
+  scale_y_log10() +
+  facet_wrap(~library) +
+  xlim(0, 100000) 
+  #ylim(0, 100)
+```
+```{r}
+ggplot(dul, aes(x=value, y=X)) + 
+  geom_boxplot(aes(col=library)) + 
+  ggtitle("Length by treatment (and preservation method)") + 
+  theme_minimal() +
+  geom_jitter(width=0.2, aes(col=library)) 
+  #facet_wrap(~ethanol)
+```
+
+```{r}
+library(hrbrthemes)
+library(viridis)
+```
+
+
+
+
+```{r}
+dul %>%
+  ggplot( aes(x=library, y=value, fill=library)) +
+    geom_boxplot() +
+    scale_fill_viridis(discrete = TRUE, alpha=0.6) +
+    geom_jitter(color="black", size=0.4, alpha=0.9) +
+    theme_ipsum() +
+    theme(
+      legend.position="none",
+      plot.title = element_text(size=11)
+    ) +
+    ggtitle("A boxplot with jitter") +
+    xlab("")
+```
+
+```{r}
+dul %>%
+  ggplot( aes(x=library, y=value, fill=library)) +
+    geom_violin() +
+    scale_fill_viridis(discrete = TRUE, alpha=0.6, option="A") +
+    theme_ipsum() +
+    theme(
+      legend.position="none",
+      plot.title = element_text(size=11)
+    ) +
+    ggtitle("Violin chart") +
+    xlab("")
+
+```
+
