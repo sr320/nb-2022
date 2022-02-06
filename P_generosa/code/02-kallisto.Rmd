@@ -1,0 +1,13 @@
+---
+title: "02-kallisto"
+output: html_document
+---
+
+```{bash}
+/home/shared/kallisto/kallisto \
+index -i /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/genome/Panopea-generosa-v1.0.index \
+/home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/genome/Panopea-generosa-v1.0.fa
+```
+
+
+
