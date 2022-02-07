@@ -111,7 +111,8 @@ ggplot(data = dul, mapping = aes(x = value)) +
 ```{r}
 ggplot(dul, aes(library, value)) +
   geom_boxplot(color = "blue") +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5))
+  geom_jitter(color="black", size=0.4, alpha=0.9) 
+  #theme(axis.text.x = element_text(angle = 90, vjust = 0.5))
 ```
 
 ```{r}
@@ -126,7 +127,7 @@ ggplot(dul, aes(library, value)) +
 
 ```{r}
 ggplot(dul, aes(x = value)) +
-  geom_histogram(bins = 100) +
+  geom_histogram(bins = 1000) +
   scale_y_log10() +
   facet_wrap(~library) +
   xlim(0, 100000) 
@@ -153,9 +154,9 @@ library(viridis)
 dul %>%
   ggplot( aes(x=library, y=value, fill=library)) +
     geom_boxplot() +
-    scale_fill_viridis(discrete = TRUE, alpha=0.6) +
+   # scale_fill_viridis(discrete = TRUE, alpha=0.6) +
     geom_jitter(color="black", size=0.4, alpha=0.9) +
-    theme_ipsum() +
+   # theme_ipsum() +
     theme(
       legend.position="none",
       plot.title = element_text(size=11)
@@ -168,14 +169,58 @@ dul %>%
 dul %>%
   ggplot( aes(x=library, y=value, fill=library)) +
     geom_violin() +
-    scale_fill_viridis(discrete = TRUE, alpha=0.6, option="A") +
-    theme_ipsum() +
+   # scale_fill_viridis(discrete = TRUE, alpha=0.6, option="A") +
+    #theme_ipsum() +
     theme(
       legend.position="none",
       plot.title = element_text(size=11)
     ) +
     ggtitle("Violin chart") +
+    ylim(0, 100) +
+     scale_y_log10() +
     xlab("")
 
 ```
+```{r}
+library(tidyverse)
+
+# Diamonds dataset is provided by R natively
+#head(diamonds)
+ 
+# basic example
+dul %>%
+  ggplot(aes(x = value, y = library)) +
+  geom_density_ridges() +
+  theme_ridges() +
+  theme(legend.position = "none")
+```
+
+y=Count, fill=factor(Count))
+
+
+```{r}
+ggplot(dul, aes(y=value)) + 
+  geom_bar(aes(fill=factor(value))) +
+  facet_wrap(~library)
+```
+
+dat$col <- cut(dat$y,
+               breaks = c(-Inf, 3000, Inf),
+               labels = c("<=3000", ">3000"))
+
+ggplot(dat, aes(x = x, y = y, color = col)) +
+  geom_point()
+
+```{r}
+dul$col <- cut(dul$value, 
+                breaks = c(-Inf, 10, Inf),
+                labels = c("low", "high"))
+
+ggplot(dul, aes(y=value, color = col)) + 
+  geom_bar() +
+  facet_wrap(~library)
+```
+
+
+
 
