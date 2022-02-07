@@ -2,3 +2,38 @@
 title: "03-heatmap"
 output: html_document
 ---
+
+
+https://github.com/RobertsLab/resources/discussions/1206
+
+
+```{r}
+list.of.packages <- c("pheatmap", "tidyverse") #add new libraries here 
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+
+# Load all libraries 
+lapply(list.of.packages, FUN = function(X) {
+  do.call("require", list(X)) 
+})
+```
+```{r}
+# Drop any genes with less than 5 counts across all  librs 
+keep <- rowMeans(select(du, starts_with("SRR"))) > 27 & rowMeans(select(du, starts_with("SRR"))) < 100
+data.f <- du[keep,]
+print(paste("# genes remaining after pre-filtering:", nrow(data.f)))
+print(paste("# of genes dropped:", nrow(du) - nrow(data.f), sep=" "))
+```
+```{r}
+df <- select (data.f,-c(X))
+```
+
+
+```{r}
+pheatmap(df, cluster_rows=TRUE, show_rownames=F, na.rm=TRUE, cluster_cols = FALSE, scale="row", main = "gene counts by day", fontsize = 9) 
+
+```
+```{r}
+pheatmap(df, cluster_rows=TRUE, show_rownames=F, na.rm=TRUE, cluster_cols = FALSE, main = "gene counts by day", fontsize = 9) 
+```
+

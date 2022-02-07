@@ -25,6 +25,16 @@ quant -i /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/data/transcript
 /home/shared/8TB_HDD_01/sr320/ncbi/{}_1.fastq /home/shared/8TB_HDD_01/sr320/ncbi/{}_2.fastq
 ```
 
+```{bash}
+find /home/shared/8TB_HDD_01/sr320/ncbi/*_1.fastq \
+| xargs basename -s _1.fastq | xargs -I{} /home/shared/kallisto/kallisto \
+quant -i /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/data/transcriptome_v5.idx \
+-o /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/b_{} \
+-t 40 \
+-bias \
+/home/shared/8TB_HDD_01/sr320/ncbi/{}_1.fastq \
+/home/shared/8TB_HDD_01/sr320/ncbi/{}_2.fastq
+```
 
 ```{bash}
 perl /home/shared/trinityrnaseq-v2.12.0/util/abundance_estimates_to_matrix.pl \
@@ -126,11 +136,11 @@ ggplot(dul, aes(library, value)) +
 
 
 ```{r}
-ggplot(dul, aes(x = value)) +
+ggplot(dul2, aes(x = value)) +
   geom_histogram(bins = 1000) +
   scale_y_log10() +
   facet_wrap(~library) +
-  xlim(0, 100000) 
+  xlim(0, 10000) 
   #ylim(0, 100)
 ```
 ```{r}
@@ -212,14 +222,55 @@ ggplot(dat, aes(x = x, y = y, color = col)) +
   geom_point()
 
 ```{r}
-dul$col <- cut(dul$value, 
-                breaks = c(-Inf, 10, Inf),
-                labels = c("low", "high"))
-
-ggplot(dul, aes(y=value, color = col)) + 
-  geom_bar() +
-  facet_wrap(~library)
+library(tidyverse)
 ```
+
+
+```{r}
+dul$col <- cut(dul$value, 
+                breaks = c(-Inf, 0, 5, 10, 1000, Inf),
+                labels = c("zero", "little", "lm", "1k", "high"))
+```
+
+```{r}
+dut <- mutate(du, totexp = rowMeans(select(du, starts_with("SRR")), na.rm = TRUE)) %>%
+  filter(totexp > 5)
+```
+
+```{r}
+dul2 <- pivot_longer(dut, cols = starts_with("SRR"),
+                       names_to = "library") 
+
+```
+
+mutate(df, IVMean = rowMeans(select(df, starts_with("IV")), na.rm = TRUE))
+
+
+```{r}
+dul2$col <- cut(dul2$totexp, 
+                breaks = c(0, 5, 10, 1000, Inf),
+                labels = c("little", "lm", "1k", "high"))
+```
+
+```{r}
+ggplot(dul2, aes(factor(value), fill = factor(col))) + geom_bar()
+
+```
+
+
+```{r}
+ggplot(dul, aes(factor(library), fill = factor(col))) + geom_bar()
+
+```
+
+```{r}
+ggplot(dul2, aes(value, fill = factor(col))) + geom_bar() +
+  facet_wrap(~library)
+
+```
+
+ggplot(acacia, aes(x = CIRC, y = HEIGHT)) +
+  geom_point()
 
 
 
