@@ -1,0 +1,13 @@
+{
+	"n_targets": 1363959,
+	"n_bootstraps": 0,
+	"n_processed": 104706949,
+	"n_pseudoaligned": 81808776,
+	"n_unique": 21371750,
+	"p_pseudoaligned": 78.1,
+	"p_unique": 20.4,
+	"kallisto_version": "0.46.1",
+	"index_version": 10,
+	"start_time": "Mon Feb  7 11:40:26 2022",
+	"call": "/home/shared/kallisto/kallisto quant -i /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/data/transcriptome_v5.idx -o /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/SRR12218868 -t 40 /home/shared/8TB_HDD_01/sr320/ncbi/SRR12218868_1.fastq /home/shared/8TB_HDD_01/sr320/ncbi/SRR12218868_2.fastq"
+}

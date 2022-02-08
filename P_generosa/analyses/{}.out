@@ -1,0 +1,255 @@
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 1,363,959
+[index] number of k-mers: 374,041,821
+[index] number of equivalence classes: 4,408,869
+[quant] running in paired-end mode
+[quant] will process pair 1: /home/shared/8TB_HDD_01/sr320/ncbi/SRR10800475_1.fastq
+                             /home/shared/8TB_HDD_01/sr320/ncbi/SRR10800475_2.fastq
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 253,299,974 reads, 3,757,727 reads pseudoaligned
+[quant] estimated average fragment length: 172.391
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,076 rounds
+
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 1,363,959
+[index] number of k-mers: 374,041,821
+[index] number of equivalence classes: 4,408,869
+[quant] running in paired-end mode
+[quant] will process pair 1: /home/shared/8TB_HDD_01/sr320/ncbi/SRR11962067_1.fastq
+                             /home/shared/8TB_HDD_01/sr320/ncbi/SRR11962067_2.fastq
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 2,768,912 reads, 28,419 reads pseudoaligned
+[quant] estimated average fragment length: 210.136
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 896 rounds
+
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 1,363,959
+[index] number of k-mers: 374,041,821
+[index] number of equivalence classes: 4,408,869
+[quant] running in paired-end mode
+[quant] will process pair 1: /home/shared/8TB_HDD_01/sr320/ncbi/SRR12207404_1.fastq
+                             /home/shared/8TB_HDD_01/sr320/ncbi/SRR12207404_2.fastq
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 93,931,027 reads, 69,874,948 reads pseudoaligned
+[quant] estimated average fragment length: 193.715
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,377 rounds
+
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 1,363,959
+[index] number of k-mers: 374,041,821
+[index] number of equivalence classes: 4,408,869
+[quant] running in paired-end mode
+[quant] will process pair 1: /home/shared/8TB_HDD_01/sr320/ncbi/SRR12207405_1.fastq
+                             /home/shared/8TB_HDD_01/sr320/ncbi/SRR12207405_2.fastq
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 62,928,954 reads, 47,191,862 reads pseudoaligned
+[quant] estimated average fragment length: 188.53
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,351 rounds
+
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 1,363,959
+[index] number of k-mers: 374,041,821
+[index] number of equivalence classes: 4,408,869
+[quant] running in paired-end mode
+[quant] will process pair 1: /home/shared/8TB_HDD_01/sr320/ncbi/SRR12207406_1.fastq
+                             /home/shared/8TB_HDD_01/sr320/ncbi/SRR12207406_2.fastq
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 91,451,743 reads, 68,678,179 reads pseudoaligned
+[quant] estimated average fragment length: 180.655
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,341 rounds
+
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 1,363,959
+[index] number of k-mers: 374,041,821
+[index] number of equivalence classes: 4,408,869
+[quant] running in paired-end mode
+[quant] will process pair 1: /home/shared/8TB_HDD_01/sr320/ncbi/SRR12207407_1.fastq
+                             /home/shared/8TB_HDD_01/sr320/ncbi/SRR12207407_2.fastq
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 79,979,249 reads, 59,986,753 reads pseudoaligned
+[quant] estimated average fragment length: 196.907
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,411 rounds
+
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 1,363,959
+[index] number of k-mers: 374,041,821
+[index] number of equivalence classes: 4,408,869
+[quant] running in paired-end mode
+[quant] will process pair 1: /home/shared/8TB_HDD_01/sr320/ncbi/SRR12212519_1.fastq
+                             /home/shared/8TB_HDD_01/sr320/ncbi/SRR12212519_2.fastq
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 61,355,123 reads, 45,110,241 reads pseudoaligned
+[quant] estimated average fragment length: 192.437
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,272 rounds
+
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 1,363,959
+[index] number of k-mers: 374,041,821
+[index] number of equivalence classes: 4,408,869
+[quant] running in paired-end mode
+[quant] will process pair 1: /home/shared/8TB_HDD_01/sr320/ncbi/SRR12218868_1.fastq
+                             /home/shared/8TB_HDD_01/sr320/ncbi/SRR12218868_2.fastq
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 104,706,949 reads, 81,808,776 reads pseudoaligned
+[quant] estimated average fragment length: 194.643
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,477 rounds
+
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 1,363,959
+[index] number of k-mers: 374,041,821
+[index] number of equivalence classes: 4,408,869
+[quant] running in paired-end mode
+[quant] will process pair 1: /home/shared/8TB_HDD_01/sr320/ncbi/SRR12218869_1.fastq
+                             /home/shared/8TB_HDD_01/sr320/ncbi/SRR12218869_2.fastq
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 55,671,619 reads, 38,463,107 reads pseudoaligned
+[quant] estimated average fragment length: 188.626
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,481 rounds
+
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 1,363,959
+[index] number of k-mers: 374,041,821
+[index] number of equivalence classes: 4,408,869
+[quant] running in paired-end mode
+[quant] will process pair 1: /home/shared/8TB_HDD_01/sr320/ncbi/SRR12218870_1.fastq
+                             /home/shared/8TB_HDD_01/sr320/ncbi/SRR12218870_2.fastq
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 59,474,116 reads, 40,896,932 reads pseudoaligned
+[quant] estimated average fragment length: 185.758
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,433 rounds
+
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 1,363,959
+[index] number of k-mers: 374,041,821
+[index] number of equivalence classes: 4,408,869
+[quant] running in paired-end mode
+[quant] will process pair 1: /home/shared/8TB_HDD_01/sr320/ncbi/SRR12226692_1.fastq
+                             /home/shared/8TB_HDD_01/sr320/ncbi/SRR12226692_2.fastq
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 13,976,789 reads, 9,333,451 reads pseudoaligned
+[quant] estimated average fragment length: 185.092
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,055 rounds
+
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 1,363,959
+[index] number of k-mers: 374,041,821
+[index] number of equivalence classes: 4,408,869
+[quant] running in paired-end mode
+[quant] will process pair 1: /home/shared/8TB_HDD_01/sr320/ncbi/SRR12226693_1.fastq
+                             /home/shared/8TB_HDD_01/sr320/ncbi/SRR12226693_2.fastq
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 828,189 reads, 228,012 reads pseudoaligned
+[quant] estimated average fragment length: 191.963
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 820 rounds
+
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 1,363,959
+[index] number of k-mers: 374,041,821
+[index] number of equivalence classes: 4,408,869
+[quant] running in paired-end mode
+[quant] will process pair 1: /home/shared/8TB_HDD_01/sr320/ncbi/SRR12227929_1.fastq
+                             /home/shared/8TB_HDD_01/sr320/ncbi/SRR12227929_2.fastq
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 4,005,096 reads, 2,902,511 reads pseudoaligned
+[quant] estimated average fragment length: 184.987
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,126 rounds
+
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 1,363,959
+[index] number of k-mers: 374,041,821
+[index] number of equivalence classes: 4,408,869
+[quant] running in paired-end mode
+[quant] will process pair 1: /home/shared/8TB_HDD_01/sr320/ncbi/SRR12227930_1.fastq
+                             /home/shared/8TB_HDD_01/sr320/ncbi/SRR12227930_2.fastq
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 526,149 reads, 87,657 reads pseudoaligned
+[quant] estimated average fragment length: 199.98
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 780 rounds
+
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 1,363,959
+[index] number of k-mers: 374,041,821
+[index] number of equivalence classes: 4,408,869
+[quant] running in paired-end mode
+[quant] will process pair 1: /home/shared/8TB_HDD_01/sr320/ncbi/SRR12227931_1.fastq
+                             /home/shared/8TB_HDD_01/sr320/ncbi/SRR12227931_2.fastq
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 181,549 reads, 120,705 reads pseudoaligned
+[quant] estimated average fragment length: 187.326
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 758 rounds
+
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 1,363,959
+[index] number of k-mers: 374,041,821
+[index] number of equivalence classes: 4,408,869
+[quant] running in paired-end mode
+[quant] will process pair 1: /home/shared/8TB_HDD_01/sr320/ncbi/SRR322877_1.fastq
+                             /home/shared/8TB_HDD_01/sr320/ncbi/SRR322877_2.fastq
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 88,444,846 reads, 463,218 reads pseudoaligned
+[quant] estimated average fragment length: 75.1778
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 964 rounds
+
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 1,363,959
+[index] number of k-mers: 374,041,821
+[index] number of equivalence classes: 4,408,869
+[quant] running in paired-end mode
+[quant] will process pair 1: /home/shared/8TB_HDD_01/sr320/ncbi/SRR8788211_1.fastq
+                             /home/shared/8TB_HDD_01/sr320/ncbi/SRR8788211_2.fastq
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 7,613,170 reads, 4,903,265 reads pseudoaligned
+[quant] estimated average fragment length: 190.254
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 992 rounds
+
