@@ -22,3 +22,62 @@ https://gannet.fish.washington.edu/seashell/bu-mox/scrubbed/020122-CMoil/2015041
 https://gannet.fish.washington.edu/seashell/bu-mox/scrubbed/020122-CMoil/
 ```
 
+```{r include=FALSE}
+file.list=list('../bg_data/20150414_trimmed_2112_lane1_HB16_Oil_25000ppm_TTAGGC_bismark_bt2.deduplicated.sorted.bam',
+                '../bg_data/20150414_trimmed_2112_lane1_HB2_Oil_25000ppm_ATCACG_bismark_bt2.deduplicated.sorted.bam',
+                '../bg_data/20150414_trimmed_2112_lane1_NB11_NoOil_CAGATC_bismark_bt2.deduplicated.sorted.bam',
+                '../bg_data/20150414_trimmed_2112_lane1_NB6_NoOil_GCCAAT_bismark_bt2.deduplicated.sorted.bam'
+)
+```
+
+```{r eval=FALSE, include=FALSE}
+myobj = processBismarkAln(location = file.list,
+  sample.id = list("Oil_16","Oil_2","Control_11","Control_6"),
+  assembly = "cv",
+  read.context="CpG",
+  mincov=2,
+  treatment = c(0,0,1,1))
+```
+
+
+
+```{r include=FALSE}
+save(myobj, file = "../analyses/myobj_01")
+```
+
+
+
+```{r include=FALSE}
+#load("../analyses/myobj_all")
+```
+
+
+```{r message=FALSE, warning=FALSE}
+filtered.myobj=filterByCoverage(myobj,lo.count=10,lo.perc=NULL,
+                                      hi.count=NULL,hi.perc=99)
+meth_filter=unite(filtered.myobj, min.per.group=NULL, destrand=TRUE)
+clusterSamples(meth_filter, dist="correlation", method="ward", plot=TRUE)
+PCASamples(meth_filter)
+```
+
+
+
+```{r include=FALSE}
+myDiff=calculateDiffMeth(meth_filter,mc.cores=48)
+```
+
+
+
+```{r}
+# get hyper methylated bases
+myDiff_50p.hyper=getMethylDiff(myDiff,difference=50,qvalue=0.01,type="hyper")
+#
+# get hypo methylated bases
+myDiff_50p.hypo=getMethylDiff(myDiff,difference=50,qvalue=0.01,type="hypo")
+#
+#
+# get all differentially methylated bases
+myDiff_50p=getMethylDiff(myDiff,difference=50,qvalue=0.01)
+```
+
+
