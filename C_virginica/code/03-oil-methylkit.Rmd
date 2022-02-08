@@ -1,0 +1,24 @@
+---
+title: "lsu oil samples"
+output: html_document
+---
+
+
+```{r}
+library(methylKit)
+```
+
+
+https://gannet.fish.washington.edu/seashell/bu-mox/scrubbed/020122-CMoil/20150414_trimmed_2112_lane1_HB16_Oil_25000ppm_TTAGGC_bismark_bt2.deduplicated.sorted.bam
+
+
+```{bash}
+/usr/bin/wget -r \
+--no-check-certificate \
+--quiet \
+--no-directories --no-parent \
+-P ../bg_data/ \
+-A *sorted.bam \
+https://gannet.fish.washington.edu/seashell/bu-mox/scrubbed/020122-CMoil/
+```
+
