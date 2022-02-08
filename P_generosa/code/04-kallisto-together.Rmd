@@ -83,4 +83,23 @@ quant -i /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/data/transcript
 /home/shared/8TB_HDD_01/sr320/ncbi/SRR12227929_1.fastq /home/shared/8TB_HDD_01/sr320/ncbi/SRR12227929_2.fastq \
 /home/shared/8TB_HDD_01/sr320/ncbi/SRR8788211_1.fastq /home/shared/8TB_HDD_01/sr320/ncbi/SRR8788211_2.fastq \
 2>&1 | tee /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/larvae.out
+```
+
+
+
+```{bash}
+perl /home/shared/trinityrnaseq-v2.12.0/util/abundance_estimates_to_matrix.pl \
+--est_method kallisto \
+    --gene_trans_map none \
+    --out_prefix /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/kallisto-0207 \
+    --name_sample_by_basedir \
+     /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/heart/abundance.tsv \
+     /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/gonad/abundance.tsv \
+     /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/ctenidia/abundance.tsv \
+     /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/juv_amb/abundance.tsv \
+     /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/juv_sl/abundance.tsv \
+     /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/larvae/abundance.tsv 
+```
+
+
 
