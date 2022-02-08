@@ -8,6 +8,6 @@
 	"p_unique": 21.6,
 	"kallisto_version": "0.46.1",
 	"index_version": 10,
-	"start_time": "Sat Feb  5 23:19:58 2022",
+	"start_time": "Mon Feb  7 11:53:42 2022",
 	"call": "/home/shared/kallisto/kallisto quant -i /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/data/transcriptome_v5.idx -o /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/SRR12218869 -t 40 /home/shared/8TB_HDD_01/sr320/ncbi/SRR12218869_1.fastq /home/shared/8TB_HDD_01/sr320/ncbi/SRR12218869_2.fastq"
 }
