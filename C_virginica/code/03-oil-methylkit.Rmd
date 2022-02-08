@@ -70,14 +70,38 @@ myDiff=calculateDiffMeth(meth_filter,mc.cores=48)
 
 ```{r}
 # get hyper methylated bases
-myDiff_50p.hyper=getMethylDiff(myDiff,difference=50,qvalue=0.01,type="hyper")
+myDiff_75p.hyper=getMethylDiff(myDiff,difference=75,qvalue=0.01,type="hyper")
 #
 # get hypo methylated bases
-myDiff_50p.hypo=getMethylDiff(myDiff,difference=50,qvalue=0.01,type="hypo")
+myDiff_75p.hypo=getMethylDiff(myDiff,difference=75,qvalue=0.01,type="hypo")
 #
 #
 # get all differentially methylated bases
-myDiff_50p=getMethylDiff(myDiff,difference=50,qvalue=0.01)
+myDiff_75p=getMethylDiff(myDiff,difference=75,qvalue=0.01)
 ```
+
+```{r}
+write.table(myDiff_75p, file = "../analyses/myDiff_75p.tab", sep = "\t")
+```
+
+
+```{r}
+myDiff_75p.tab <- read.csv(file = "../analyses/myDiff_75p.tab", sep = "\t")
+```
+
+
+
+
+```{r}
+all_dml <- dplyr::select(myDiff_75p.tab, chr, start, end, meth.diff) %>% 
+  mutate(start = start -1) %>% 
+  mutate(end = end +1) %>%
+  mutate_if(is.numeric, as.integer) %>% 
+  mutate(TYPE ="DML") %>% 
+  select(chr, start, end, TYPE, meth.diff) 
+write.table(all_dml, file = "../analyses/oilexp_dml.bed", sep = "\t", row.names = FALSE, col.names = FALSE, quote = FALSE)
+```
+
+
 
 
