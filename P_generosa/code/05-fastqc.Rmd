@@ -1,0 +1,30 @@
+---
+title: "fastqc"
+output: html_document
+---
+
+
+# Directories and programs
+
+fastqc="/home/shared/FastQC/fastqc"
+
+```{bash}
+
+#FastQC 
+
+fastqc="/home/shared/FastQC/fastqc"
+
+#Populate array with FastQ files
+fastq_array=(/home/shared/8TB_HDD_01/sr320/ncbi/*.fastq)
+
+#Pass array contents to new variable
+fastqc_list=$(echo "${fastq_array[*]}")
+
+#Run FastQC
+${fastqc} \
+--threads 28 \
+${fastqc_list} \
+-o /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/fastqc01 \
+2>&1 | tee /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/fastqc01/stdout
+```
+

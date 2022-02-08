@@ -22,7 +22,8 @@ find /home/shared/8TB_HDD_01/sr320/ncbi/*_1.fastq \
 quant -i /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/data/transcriptome_v5.idx \
 -o /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/{} \
 -t 40 \
-/home/shared/8TB_HDD_01/sr320/ncbi/{}_1.fastq /home/shared/8TB_HDD_01/sr320/ncbi/{}_2.fastq
+/home/shared/8TB_HDD_01/sr320/ncbi/{}_1.fastq /home/shared/8TB_HDD_01/sr320/ncbi/{}_2.fastq \
+2>&1 | tee /home/shared/8TB_HDD_01/sr320/github/nb-2022/P_generosa/analyses/{}.out
 ```
 
 ```{bash}
