@@ -1,1 +1,6 @@
 myobj_01
+*.m*
+*.snp
+bsnp02
+*vcf
+bsnp01

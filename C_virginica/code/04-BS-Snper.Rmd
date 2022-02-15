@@ -1,0 +1,69 @@
+---
+title: "BS SNPer"
+output: html_document
+---
+
+see also https://nbviewer.org/github/RobertsLab/project-gigas-oa-meth/blob/master/code/07-BS-SNPer.ipynb
+
+
+```{bash}
+perl /home/shared/BS-Snper-master/BS-Snper.pl \
+/home/sr320/github/2018_L18-adult-methylation/bg_data/48M_R1_val_1_bismark_bt2_pe.deduplicated.sorted.bam \
+-fa ../data/Cvirginica_v300.fa \
+--output ../analyses/48M.snp \
+--methcg ../analyses/48.mcg \
+--methchg ../analyses/48.mchg \
+--methchh ../analyses/48.mchh \
+--mincover 5 \
+> ../analyses/48.vcf
+
+```
+
+```{bash}
+find /home/sr320/github/2018_L18-adult-methylation/bg_data/*.bam \
+| xargs basename -s _R1_val_1_bismark_bt2_pe.deduplicated.sorted.bam | xargs -I{} perl /home/shared/BS-Snper-master/BS-Snper.pl \
+/home/sr320/github/2018_L18-adult-methylation/bg_data/{}_R1_val_1_bismark_bt2_pe.deduplicated.sorted.bam \
+-fa ../data/Cvirginica_v300.fa \
+--output ../analyses/{}.snp \
+--methcg ../analyses/{}.mcg \
+--methchg ../analyses/{}.mchg \
+--methchh ../analyses/{}.mchh \
+--mincover 10 \
+> ../analyses/{}.vcf
+```
+```{bash}
+FILES=$(ls /home/sr320/github/2018_L18-adult-methylation/bg_data/*deduplicated.sorted.bam)
+
+for file in ${FILES}
+do
+    NAME=$(echo ${file} | basename -s .deduplicated.sorted.bam)
+    echo ${NAME}
+done    
+```
+
+
+
+```{bash}
+cd /home/sr320/github/2018_L18-adult-methylation/bg_data/
+FILES=$(ls *deduplicated.sorted.bam)
+echo ${FILES}
+cd /home/shared/8TB_HDD_01/sr320/github/nb-2022/C_virginica/code/
+for file in ${FILES}
+do
+    NAME=$(echo ${file} | awk -F "." '{print $1}')
+    echo ${NAME}
+
+    perl /home/shared/BS-Snper-master/BS-Snper.pl \
+    --fa ../data/Cvirginica_v300.fa \
+    --input /home/sr320/github/2018_L18-adult-methylation/bg_data/${NAME}.deduplicated.sorted.bam \
+    --output ../analyses/bsnp01/${NAME}.SNP-candidates.txt \
+    --methcg ../analyses/bsnp01/${NAME}.CpG-meth-info.tab \
+    --methchg ../analyses/bsnp01/${NAME}.CHG-meth-info.tab \
+    --methchh ../analyses/bsnp01/${NAME}.CHH-meth-info.tab \
+    --mincover 5 \
+    > ../analyses/bsnp01/${NAME}.SNP-results.vcf
+
+done
+```
+
+
