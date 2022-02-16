@@ -2,3 +2,18 @@
 title: "Reducing VCF"
 output: html_document
 ---
+
+per
+
+So you got 1 vcf file for each individual. Bcftools merge should merge them into 1 vcf:
+https://samtools.github.io/bcftools/bcftools.html#merge  
+`bcftools merge sample1.vcf sample2.vcf sample3.vcf --merge all -O v -o merged.vcf`  
+
+I would then filter with vcftools a bit so it is smaller/less noisy. Max missing 50%, minor allele count >=2, biallelic SNPs:  
+```
+vcftools --vcf merged.vcf --recode --recode-INFO-all \
+--min-alleles 2 --max-alleles 2 \
+--max-missing 0.5 \
+--mac 2 \
+--out merged.filtered
+```
