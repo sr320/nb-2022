@@ -1,0 +1,4 @@
+---
+title: "Reducing VCF"
+output: html_document
+---
