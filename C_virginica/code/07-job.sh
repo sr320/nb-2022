@@ -37,6 +37,7 @@ do
 
     /gscratch/srlab/programs/bedtools-2.27.1/bin/bedtools coverage \
     -mean \
+    -sorted \
     -a /gscratch/srlab/sr320/data/Cvirg-genome/C_virginica-3.0_Gnomon_genes.bed \
     -b /gscratch/scrubbed/sr320/021022-CvBSnp/${NAME}.deduplicated.sorted.bam \
     > ${NAME}_cov_m.out
