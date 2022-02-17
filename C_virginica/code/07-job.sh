@@ -27,8 +27,9 @@ genome_folder="/gscratch/srlab/sr320/data/Cvirg-genome/"
 
 source /gscratch/srlab/programs/scripts/paths.sh
 
-FILES=$(ls /gscratch/scrubbed/sr320/021022-CvBSnp/*sorted.bam)
-echo ${FILES}
+cd /gscratch/scrubbed/sr320/021022-CvBSnp/
+FILES=$(ls *sorted.bam)
+
 for file in ${FILES}
 do
     NAME=$(echo ${file} | awk -F "." '{print $1}')
