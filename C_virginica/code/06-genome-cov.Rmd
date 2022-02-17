@@ -1,0 +1,13 @@
+---
+title: "genome coverage"
+output: html_document
+---
+
+
+```{bash}
+/home/shared/bedtools2/bin/bedtools coverage \
+-mean \
+-a ../data/C_virginica-3.0_Gnomon_genes.bed  \
+-b /home/sr320/github/2018_L18-adult-methylation/bg_data/9M_R1_val_1_bismark_bt2_pe.deduplicated.sorted.bam \
+> ../analyses/9M_cov_m.out
+```

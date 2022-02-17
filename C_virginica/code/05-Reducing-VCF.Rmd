@@ -17,3 +17,19 @@ vcftools --vcf merged.vcf --recode --recode-INFO-all \
 --mac 2 \
 --out merged.filtered
 ```
+
+```{bash}
+/home/shared/bcftools-1.14/bcftools merge \
+/home/shared/8TB_HDD_01/sr320/github/nb-2022/C_virginica/analyses/bsnp01/*vcf \
+--merge all \
+-O v \
+-o /home/shared/8TB_HDD_01/sr320/github/nb-2022/C_virginica/analyses/5x_merged.vcf
+```
+
+
+```{bash}
+
+/home/shared/bcftools-1.14/bcftools merge -h
+```
+
+
