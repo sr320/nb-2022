@@ -28,8 +28,95 @@ vcftools --vcf merged.vcf --recode --recode-INFO-all \
 
 
 ```{bash}
+cd /home/shared/8TB_HDD_01/sr320/github/nb-2022/C_virginica/analyses/bsnp01/
+
+/home/shared/bcftools-1.14/bcftools merge \
+12M_R1_val_1_bismark_bt2_pe.SNP-results.vcf \
+44F_R1_val_1_bismark_bt2_pe.SNP-results.vcf \
+13M_R1_val_1_bismark_bt2_pe.SNP-results.vcf \
+48M_R1_val_1_bismark_bt2_pe.SNP-results.vcf \
+16F_R1_val_1_bismark_bt2_pe.SNP-results.vcf \
+50F_R1_val_1_bismark_bt2_pe.SNP-results.vcf \
+19F_R1_val_1_bismark_bt2_pe.SNP-results.vcf \
+52F_R1_val_1_bismark_bt2_pe.SNP-results.vcf \
+22F_R1_val_1_bismark_bt2_pe.SNP-results.vcf \
+53F_R1_val_1_bismark_bt2_pe.SNP-results.vcf \
+23M_R1_val_1_bismark_bt2_pe.SNP-results.vcf \
+54F_R1_val_1_bismark_bt2_pe.SNP-results.vcf \
+29F_R1_val_1_bismark_bt2_pe.SNP-results.vcf \
+59M_R1_val_1_bismark_bt2_pe.SNP-results.vcf \
+31M_R1_val_1_bismark_bt2_pe.SNP-results.vcf \
+64M_R1_val_1_bismark_bt2_pe.SNP-results.vcf \
+35F_R1_val_1_bismark_bt2_pe.SNP-results.vcf \
+6M_R1_val_1_bismark_bt2_pe.SNP-results.vcf \
+36F_R1_val_1_bismark_bt2_pe.SNP-results.vcf \
+76F_R1_val_1_bismark_bt2_pe.SNP-results.vcf \
+39F_R1_val_1_bismark_bt2_pe.SNP-results.vcf \
+77F_R1_val_1_bismark_bt2_pe.SNP-results.vcf \
+3F_R1_val_1_bismark_bt2_pe.SNP-results.vcf \
+7M_R1_val_1_bismark_bt2_pe.SNP-results.vcf \
+41F_R1_val_1_bismark_bt2_pe.SNP-results.vcf \
+9M_R1_val_1_bismark_bt2_pe.SNP-results.vcf \
+--merge all \
+--threads 20 \
+-O v \
+-o /home/shared/8TB_HDD_01/sr320/github/nb-2022/C_virginica/analyses/5x_02_merged.vcf
+
+```
+
+
+12M_R1_val_1_bismark_bt2_pe.SNP-results.vcf  44F_R1_val_1_bismark_bt2_pe.SNP-results.vcf
+13M_R1_val_1_bismark_bt2_pe.SNP-results.vcf  48M_R1_val_1_bismark_bt2_pe.SNP-results.vcf
+16F_R1_val_1_bismark_bt2_pe.SNP-results.vcf  50F_R1_val_1_bismark_bt2_pe.SNP-results.vcf
+19F_R1_val_1_bismark_bt2_pe.SNP-results.vcf  52F_R1_val_1_bismark_bt2_pe.SNP-results.vcf
+22F_R1_val_1_bismark_bt2_pe.SNP-results.vcf  53F_R1_val_1_bismark_bt2_pe.SNP-results.vcf
+23M_R1_val_1_bismark_bt2_pe.SNP-results.vcf  54F_R1_val_1_bismark_bt2_pe.SNP-results.vcf
+29F_R1_val_1_bismark_bt2_pe.SNP-results.vcf  59M_R1_val_1_bismark_bt2_pe.SNP-results.vcf
+31M_R1_val_1_bismark_bt2_pe.SNP-results.vcf  64M_R1_val_1_bismark_bt2_pe.SNP-results.vcf
+35F_R1_val_1_bismark_bt2_pe.SNP-results.vcf  6M_R1_val_1_bismark_bt2_pe.SNP-results.vcf
+36F_R1_val_1_bismark_bt2_pe.SNP-results.vcf  76F_R1_val_1_bismark_bt2_pe.SNP-results.vcf
+39F_R1_val_1_bismark_bt2_pe.SNP-results.vcf  77F_R1_val_1_bismark_bt2_pe.SNP-results.vcf
+3F_R1_val_1_bismark_bt2_pe.SNP-results.vcf   7M_R1_val_1_bismark_bt2_pe.SNP-results.vcf
+41F_R1_val_1_bismark_bt2_pe.SNP-results.vcf  9M_R1_val_1_bismark_bt2_pe.SNP-results.vcf
+
+
+
+
+
+```{bash}
 
 /home/shared/bcftools-1.14/bcftools merge -h
 ```
+
+# filtering VCF
+
+
+```{bash}
+head /home/shared/8TB_HDD_01/sr320/github/nb-2022/C_virginica/bg_data/Cv_10x_merged.vcf
+```
+
+
+
+```{bash}
+sed 's/^##fileformat=VCFv4.3/##fileformat=VCFv4.2/' /home/shared/8TB_HDD_01/sr320/github/nb-2022/C_virginica/bg_data/Cv_10x_merged.vcf \
+> /home/shared/8TB_HDD_01/sr320/github/nb-2022/C_virginica/bg_data/Cv_10x_fxmerged.vcf
+
+```
+
+```{bash}
+head /home/shared/8TB_HDD_01/sr320/github/nb-2022/C_virginica/bg_data/Cv_10x_fxmerged.vcf
+```
+
+```{bash}
+/gscratch/srlab/programs/vcftools-0.1.16/bin/vcftools \
+--vcf Cv_10x_merged.vcf \
+--recode --recode-INFO-all \
+--min-alleles 2 --max-alleles 2 \
+--max-missing 0.5 \
+--mac 2 \
+--out Cv_10x_merged.filtered
+
+```
+
 
 
