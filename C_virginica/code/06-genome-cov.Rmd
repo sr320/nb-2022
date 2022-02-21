@@ -11,3 +11,25 @@ output: html_document
 -b /home/sr320/github/2018_L18-adult-methylation/bg_data/9M_R1_val_1_bismark_bt2_pe.deduplicated.sorted.bam \
 > ../analyses/9M_cov_m.out
 ```
+
+
+```{bash}
+cd /home/sr320/github/2018_L18-adult-methylation/bg_data/
+FILES=$(ls *sorted.bam)
+echo ${FILES}
+cd /home/shared/8TB_HDD_01/sr320/github/nb-2022/C_virginica/code/
+for file in ${FILES}
+do
+    NAME=$(echo ${file} | awk -F "." '{print $1}')
+    echo ${NAME}
+
+    /home/shared/bedtools2/bin/bedtools coverage \
+    -mean \
+    -a ../data/C_virginica-3.0_Gnomon_genes.bed  \
+    -b /home/sr320/github/2018_L18-adult-methylation/bg_data/${NAME}.deduplicated.sorted.bam \
+    > ../analyses/${NAME}_cov_m2.out
+done
+```
+
+
+GOING TO MOX m
