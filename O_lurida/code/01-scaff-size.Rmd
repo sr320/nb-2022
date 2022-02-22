@@ -15,6 +15,15 @@ awk '$0 ~ ">" {print c; c=0;printf substr($0,2,100) "\t"; } $0 !~ ">" {c+=length
 ```
 
 ```{r}
-scaff <- read.csv("O_lurida/analyses/scaff_size.tab", sep = "\t")
+scaff <- read.csv("../analyses/scaff_size.tab", sep = "\t", header = FALSE)
+```
+
+```{r}
+library(tidyverse)
+```
+
+
+```{r}
+shortscaff <- scaff %>% filter(V2 < 50000)
 ```
 
