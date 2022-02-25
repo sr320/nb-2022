@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Session genome="/Users/sr320/Documents/GitHub/nb-2021/C_gigas/data/cgigas_uk_roslin_v1_genomic-mito.fa" hasGeneTrack="false" hasSequenceTrack="true" locus="NC_047563.1:19140014-19140054" version="8">
+    <Resources>
+        <Resource name="unique-CT-SNPs.bed" path="https://gannet.fish.washington.edu/spartina/project-gigas-oa-meth/output/BS-Snper/unique-CT-SNPs.bed"/>
+        <Resource name="zr3616_6_R1_val_1_val_1_val_1_bismark_bt2_pe.deduplicated.sorted.bam" path="https://gannet.fish.washington.edu/spartina/project-gigas-oa-meth/output/bismark-roslin/zr3616_6_R1_val_1_val_1_val_1_bismark_bt2_pe.deduplicated.sorted.bam"/>
+    </Resources>
+    <Panel height="1794" name="Panel1644429877598" width="1133">
+        <Track attributeKey="zr3616_6_R1_val_1_val_1_val_1_bismark_bt2_pe.deduplicated.sorted.bam Coverage" autoScale="true" clazz="org.broad.igv.sam.CoverageTrack" color="175,175,175" colorScale="ContinuousColorScale;0.0;15.0;255,255,255;175,175,175" fontSize="10" id="https://gannet.fish.washington.edu/spartina/project-gigas-oa-meth/output/bismark-roslin/zr3616_6_R1_val_1_val_1_val_1_bismark_bt2_pe.deduplicated.sorted.bam_coverage" name="zr3616_6_R1_val_1_val_1_val_1_bismark_bt2_pe.deduplicated.sorted.bam Coverage" snpThreshold="0.2" visible="true">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="68.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track attributeKey="zr3616_6_R1_val_1_val_1_val_1_bismark_bt2_pe.deduplicated.sorted.bam Junctions" clazz="org.broad.igv.sam.SpliceJunctionTrack" fontSize="10" height="60" id="https://gannet.fish.washington.edu/spartina/project-gigas-oa-meth/output/bismark-roslin/zr3616_6_R1_val_1_val_1_val_1_bismark_bt2_pe.deduplicated.sorted.bam_junctions" name="zr3616_6_R1_val_1_val_1_val_1_bismark_bt2_pe.deduplicated.sorted.bam Junctions" visible="false"/>
+        <Track attributeKey="zr3616_6_R1_val_1_val_1_val_1_bismark_bt2_pe.deduplicated.sorted.bam" clazz="org.broad.igv.sam.AlignmentTrack" displayMode="EXPANDED" experimentType="OTHER" fontSize="10" id="https://gannet.fish.washington.edu/spartina/project-gigas-oa-meth/output/bismark-roslin/zr3616_6_R1_val_1_val_1_val_1_bismark_bt2_pe.deduplicated.sorted.bam" name="zr3616_6_R1_val_1_val_1_val_1_bismark_bt2_pe.deduplicated.sorted.bam" visible="true">
+            <RenderOptions/>
+        </Track>
+    </Panel>
+    <Panel height="84" name="FeaturePanel" width="1133">
+        <Track attributeKey="Reference sequence" clazz="org.broad.igv.track.SequenceTrack" fontSize="10" id="Reference sequence" name="Reference sequence" sequenceTranslationStrandValue="POSITIVE" shouldShowTranslation="false" visible="true"/>
+        <Track attributeKey="unique-CT-SNPs.bed" clazz="org.broad.igv.track.FeatureTrack" color="0,0,178" fontSize="10" id="https://gannet.fish.washington.edu/spartina/project-gigas-oa-meth/output/BS-Snper/unique-CT-SNPs.bed" name="unique-CT-SNPs.bed" visible="true"/>
+    </Panel>
+    <PanelLayout dividerFractions="0.010309278350515464,0.8470790378006873"/>
+    <HiddenAttributes>
+        <Attribute name="DATA FILE"/>
+        <Attribute name="DATA TYPE"/>
+        <Attribute name="NAME"/>
+    </HiddenAttributes>
+</Session>
