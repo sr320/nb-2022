@@ -28,6 +28,20 @@ head -1 ../analyses/GCF_902806645.1_cgigas_uk_roslin_v1_translated_cds.tab
 ```
 
 
+```{bash}
+head -1 ../analyses/GCF_902806645.1_cgigas_uk_roslin_v1_translated_cds.tab | awk '{print $2}' | sed 's/\[gene=//g' | sed 's/\]//g' 
+```
+
+```{bash}
+cat ../analyses/GCF_902806645.1_cgigas_uk_roslin_v1_translated_cds.tab | awk '{print $2, $1}' | sed 's/\[gene=//g' | sed 's/\]//g' > ../analyses/LOC_Acc.tab
+```
+
+
+
+
+
+
+
 will need https://github.com/RobertsLab/resources/discussions/1087
 
 
@@ -108,5 +122,67 @@ source /gscratch/srlab/programs/scripts/paths.sh
 ```{bash}
 head ../analyses/CgR-blastp-spur.tab 
 ```
+
+nb-2021 Files
+
+/home/shared/8TB_HDD_01/sr320/github/nb-2021/C_gigas/data
+
+# C elegans
+
+!{bldir}blastx \
+-query ../data/GCF_000297895.1_oyster_v9_cds_from_genomic.fna \
+-db ../blastdb/c_elegans.PRJNA13758.WS279.protein  \
+-out ../analyses/Cg-c_elRRJ_blastx.tab \
+-evalue 1E-20 \
+-num_threads 2 \
+-max_target_seqs 1 \
+-outfmt 6
+
+```{bash}
+/home/shared/ncbi-blast-2.11.0+/bin/blastp \
+-query ../data/GCF_902806645.1_cgigas_uk_roslin_v1_translated_cds.faa \
+-db ../blastdb/Caenorhabditis_elegans.WBcel235.pep \
+-out ../analyses/CgR-blastp-cel.tab \
+-num_threads 20 \
+-max_target_seqs 1 \
+-max_hsps 1 \
+-outfmt "6 qaccver saccver evalue"
+```
+```{bash}
+ls ../blastdb/Caenorhabditis_elegans.WBcel235*
+```
+# swissprot 
+
+
+```{bash}
+/home/shared/ncbi-blast-2.11.0+/bin/blastp \
+-query ../data/GCF_902806645.1_cgigas_uk_roslin_v1_translated_cds.faa \
+-db /home/shared/blast_dbs/20210613_ncbi_sp_v5/swissprot \
+-out ../analyses/CgR-blastp-sp.tab \
+-num_threads 20 \
+-max_target_seqs 1 \
+-max_hsps 1 \
+-outfmt "6 qaccver saccver evalue"
+```
+
+```{bash}
+
+
+/home/shared/ncbi-blast-2.11.0+/bin/makeblastdb \
+-in ../../blastdb/dmel-all-CDS-r6.37.fasta \
+-dbtype nucl \
+-out ../../blastdb/dmel-all-CDS-r6.37
+```
+```{bash}
+/home/shared/ncbi-blast-2.11.0+/bin/tblastn \
+-query ../data/GCF_902806645.1_cgigas_uk_roslin_v1_translated_cds.faa \
+-db ../../blastdb/dmel-all-CDS-r6.37 \
+-out ../analyses/CgR-blastp-dmel.tab \
+-num_threads 20 \
+-max_target_seqs 1 \
+-max_hsps 1 \
+-outfmt "6 qaccver saccver evalue"
+```
+
 
 
