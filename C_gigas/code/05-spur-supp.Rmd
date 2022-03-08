@@ -1,0 +1,85 @@
+---
+title: "05-spur-supp"
+output: html_document
+---
+
+
+```{r}
+library(tidyverse)
+```
+
+
+
+```{r}
+S3 <- read.csv("../data/fwddev191528revisedsupplementaryfile/Table S3_ Morula_Cluster16.txt", header = TRUE, sep="\t")  %>% 
+  rename(
+    S3_mor = Table.S3
+    )
+```
+
+```{r}
+S4 <- read.csv("../data/fwddev191528revisedsupplementaryfile/Table S4_ Morula_Cluster20.txt", header = TRUE, sep="\t") %>% 
+  rename(
+    S4_mor = Table.S4
+    )
+```
+
+
+```{r}
+S7mor <- read.csv("../data/fwddev191528revisedsupplementaryfile/Table S7_ Cluster 20 Markers_morula.txt", header = TRUE, sep="\t") %>% 
+  rename(
+    S7_mor = X
+    ) 
+```
+
+
+```{r}
+S7eb <- read.csv("../data/fwddev191528revisedsupplementaryfile/Table S7_ Cluster 20 Markers_early_blastula.txt", header = TRUE, sep="\t") %>% 
+  rename(
+    S7_eb = X
+    )  
+```
+
+```{r}
+S7hb <- read.csv("../data/fwddev191528revisedsupplementaryfile/Table S7_ Cluster 20 Markers_hatched_blastula.txt", header = TRUE, sep="\t") %>% 
+  rename(
+    S7_hb = X
+    )   
+```
+
+
+```{r}
+S7mb <- read.csv("../data/fwddev191528revisedsupplementaryfile/Table S7_ Cluster 20 Markers_mesenchyme_blastula.txt", header = TRUE, sep="\t") %>% 
+  rename(
+    S7_mb = X
+    )    
+```
+
+
+```{r}
+S7eg <- read.csv("../data/fwddev191528revisedsupplementaryfile/Table S7_ Cluster 20 Markers_early_gastrula.txt", header = TRUE, sep="\t")  %>% 
+  rename(
+    S7_eg = X
+    )    
+```
+
+```{r}
+S7lg <- read.csv("../data/fwddev191528revisedsupplementaryfile/Table S7_ Cluster 20 Markers_Late_gastrula.txt", header = TRUE, sep="\t")  %>% 
+  rename(
+    S7_lg = X
+    )    
+```
+
+
+
+```{r}
+Spur_supptab <- left_join(comb, S3, by = c("spur_ID5" ="Row.names")) %>%
+  left_join(S4, by = c("spur_ID5" ="Row.names")) %>%
+  left_join(S7mor, by = c("spur_ID5" ="Row.names")) %>%
+  left_join(S7eb, by = c("spur_ID5" ="Row.names")) %>%
+  left_join(S7eg, by = c("spur_ID5" ="Row.names")) %>%
+  left_join(S7hb, by = c("spur_ID5" ="Row.names")) %>%
+  left_join(S7lg, by = c("spur_ID5" ="Row.names")) %>%
+  left_join(S7mb, by = c("spur_ID5" ="Row.names")) %>%
+  left_join(S7mor, by = c("spur_ID5" ="Row.names"))
+```

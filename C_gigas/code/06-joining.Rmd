@@ -1,0 +1,64 @@
+---
+title: "06-joining"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+```
+```{r}
+loc <- read.csv("../analyses/LOC_Acc.tab", sep = " ", header = FALSE)
+
+```
+
+```{r}
+cel <- read.csv("../analyses/CgR-blastp-cel.tab", header = FALSE, sep="\t")  %>%
+  distinct(V1, .keep_all = TRUE)
+```
+
+```{r}
+dmel <- read.csv("../analyses/CgR-blastp-dmel.tab", header = FALSE, sep="\t")  %>%
+  distinct(V1, .keep_all = TRUE)
+```
+
+```{r}
+spur <- read.csv("../analyses/CgR-blastp-spur.tab", header = FALSE, sep="\t")  %>%
+  distinct(V1, .keep_all = TRUE)
+```
+
+```{r}
+swissprot <- read.csv("../analyses/CgR-blastp-sp.tab", header = FALSE, sep="\t")  %>%
+  distinct(V1, .keep_all = TRUE)
+```
+
+
+```{r}
+spur_sym <- read.csv("../analyses/Spur-blastp-LOCsym.tab", sep="\t", header = TRUE)
+
+```
+
+```{r}
+comb <- left_join(loc, swissprot, by = c("V2" = "V1")) %>%
+  left_join(cel, by = c("V2" = "V1")) %>%
+  left_join(dmel, by = c("V2" = "V1")) %>%
+  left_join(spur_sym, by = c("V2" = "V1.x")) 
+```
+
+
+
+```{r}
+comb <- left_join(loc, swissprot, by = c("V2" = "V1")) %>%
+  left_join(cel, by = c("V2" = "V1")) %>%
+  left_join(dmel, by = c("V2" = "V1")) %>%
+  left_join(spur_sym, by = c("V2" = "V1.x"))  %>%
+  rename(LOC = V1, Cg_acc = V2, unitpro = V2.y.x, up_evalue = V3.x.x, cel = V2.y.y, cel_evalue = V3.y.x, dmel = V2.y.y.y, dmel_evalue = V3, spur_acc = V2.x, spur_evalue = V3.x.y, spur_ID2 = V1.y, spur_ID3 = V2.y.y.y.y, spur_ID4 = V3.y.y, spur_ID5 = V4)
+```
+
+
+```{r}
+write_tsv(
+  comb,
+  "../analyses/Cg_hit-table.tab"
+)
+
+```

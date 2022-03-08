@@ -1,0 +1,188 @@
+---
+title: "03-sc-annot"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+```
+
+```{bash}
+head ../data/LOCID_38222_Roslin_Gigas_mito.txt
+```
+
+# Get fasta (proteins) that correspond to these LOC
+
+
+```{bash}
+head ../data/GCF_902806645.1_cgigas_uk_roslin_v1_translated_cds.faa
+```
+
+```{bash}
+perl -e '$count=0; $len=0; while(<>) {s/\r?\n//; s/\t/ /g; if (s/^>//) { if ($. != 1) {print "\n"} s/ |$/\t/; $count++; $_ .= "\t";} else {s/ //g; $len += length($_)} print $_;} print "\n"; warn "\nConverted $count FASTA records in $. lines to tabular format\nTotal sequence length: $len\n\n";' ../data/GCF_902806645.1_cgigas_uk_roslin_v1_translated_cds.faa > ../analyses/GCF_902806645.1_cgigas_uk_roslin_v1_translated_cds.tab
+```
+
+
+```{bash}
+head -1 ../analyses/GCF_902806645.1_cgigas_uk_roslin_v1_translated_cds.tab
+```
+
+
+```{bash}
+head -1 ../analyses/GCF_902806645.1_cgigas_uk_roslin_v1_translated_cds.tab | awk '{print $2}' | sed 's/\[gene=//g' | sed 's/\]//g' 
+```
+
+```{bash}
+cat ../analyses/GCF_902806645.1_cgigas_uk_roslin_v1_translated_cds.tab | awk '{print $2, $1}' | sed 's/\[gene=//g' | sed 's/\]//g' > ../analyses/LOC_Acc.tab
+```
+
+
+
+
+
+
+
+will need https://github.com/RobertsLab/resources/discussions/1087
+
+
+
+
+
+
+# likely can join lets just blast
+
+
+```{bash}
+/home/shared/ncbi-blast-2.11.0+/bin/blastp \
+-query ../data/GCF_902806645.1_cgigas_uk_roslin_v1_translated_cds.faa \
+-db ../blastdb/Caenorhabditis_elegans.WBcel235.prot \
+-out ../analyses/CgR-blastp-ce.tab \
+-num_threads 20 \
+-max_target_seqs 1 \
+-max_hsps 1 \
+-outfmt "6 qaccver saccver evalue"
+```
+
+
+
+Will take some to mox...
+
+```
+#!/bin/bash
+## Job Name
+#SBATCH --job-name=scblast
+## Allocation Definition
+#SBATCH --account=coenv
+#SBATCH --partition=coenv
+## Nodes
+#SBATCH --nodes=1
+## Walltime (days-hours:minutes:seconds format)
+#SBATCH --time=8-00:00:00
+## Memory per node
+#SBATCH --mem=100G
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=sr320@uw.edu
+## Specify the working directory for this job
+#SBATCH --chdir=/gscratch/scrubbed/sr320/022522-Cgsc-annot
+
+
+
+# Directories and programs
+bismark_dir="/gscratch/srlab/programs/Bismark-0.22.3"
+bowtie2_dir="/gscratch/srlab/programs/bowtie2-2.3.4.1-linux-x86_64/"
+samtools="/gscratch/srlab/programs/samtools-1.9/samtools"
+reads_dir="/gscratch/srlab/sr320/data/cvirg/"
+blast="/gscratch/srlab/programs/ncbi-blast-2.10.1+/bin"
+genome_folder="/gscratch/srlab/sr320/data/Cvirg-genome/"
+
+source /gscratch/srlab/programs/scripts/paths.sh
+
+
+/gscratch/srlab/programs/ncbi-blast-2.10.1+/bin/blastp \
+-query /gscratch/srlab/sr320/data/cg/GCF_902806645.1_cgigas_uk_roslin_v1_translated_cds.faa \
+-db /gscratch/srlab/sr320/blastdb/ProteinsSpur5.0 \
+-out CgR-blastp-spur.tab \
+-num_threads 40 \
+-max_target_seqs 1 \
+-max_hsps 1 \
+-outfmt "6 qaccver saccver evalue"
+```
+
+
+```{bash}
+/home/shared/ncbi-blast-2.11.0+/bin/blastp \
+-query ../data/GCF_902806645.1_cgigas_uk_roslin_v1_translated_cds.faa \
+-db ../blastdb/ProteinsSpur5.0 \
+-out ../analyses/CgR-blastp-spur.tab \
+-num_threads 20 \
+-max_target_seqs 1 \
+-max_hsps 1 \
+-outfmt "6 qaccver saccver evalue"
+```
+```{bash}
+head ../analyses/CgR-blastp-spur.tab 
+```
+
+nb-2021 Files
+
+/home/shared/8TB_HDD_01/sr320/github/nb-2021/C_gigas/data
+
+# C elegans
+
+!{bldir}blastx \
+-query ../data/GCF_000297895.1_oyster_v9_cds_from_genomic.fna \
+-db ../blastdb/c_elegans.PRJNA13758.WS279.protein  \
+-out ../analyses/Cg-c_elRRJ_blastx.tab \
+-evalue 1E-20 \
+-num_threads 2 \
+-max_target_seqs 1 \
+-outfmt 6
+
+```{bash}
+/home/shared/ncbi-blast-2.11.0+/bin/blastp \
+-query ../data/GCF_902806645.1_cgigas_uk_roslin_v1_translated_cds.faa \
+-db ../blastdb/Caenorhabditis_elegans.WBcel235.pep \
+-out ../analyses/CgR-blastp-cel.tab \
+-num_threads 20 \
+-max_target_seqs 1 \
+-max_hsps 1 \
+-outfmt "6 qaccver saccver evalue"
+```
+```{bash}
+ls ../blastdb/Caenorhabditis_elegans.WBcel235*
+```
+# swissprot 
+
+
+```{bash}
+/home/shared/ncbi-blast-2.11.0+/bin/blastp \
+-query ../data/GCF_902806645.1_cgigas_uk_roslin_v1_translated_cds.faa \
+-db /home/shared/blast_dbs/20210613_ncbi_sp_v5/swissprot \
+-out ../analyses/CgR-blastp-sp.tab \
+-num_threads 20 \
+-max_target_seqs 1 \
+-max_hsps 1 \
+-outfmt "6 qaccver saccver evalue"
+```
+
+```{bash}
+
+
+/home/shared/ncbi-blast-2.11.0+/bin/makeblastdb \
+-in ../../blastdb/dmel-all-CDS-r6.37.fasta \
+-dbtype nucl \
+-out ../../blastdb/dmel-all-CDS-r6.37
+```
+```{bash}
+/home/shared/ncbi-blast-2.11.0+/bin/tblastn \
+-query ../data/GCF_902806645.1_cgigas_uk_roslin_v1_translated_cds.faa \
+-db ../../blastdb/dmel-all-CDS-r6.37 \
+-out ../analyses/CgR-blastp-dmel.tab \
+-num_threads 20 \
+-max_target_seqs 1 \
+-max_hsps 1 \
+-outfmt "6 qaccver saccver evalue"
+```
+
+
+

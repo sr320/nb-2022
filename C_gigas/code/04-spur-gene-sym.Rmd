@@ -1,0 +1,56 @@
+---
+title: "04-spur-gene-sym"
+output: html_document
+---
+
+
+Will recreate and SPur gene symbol join however using the SPUR blastx with no evalue limit.
+
+
+```{r}
+library(tidyverse)
+```
+
+
+```{r}
+
+spur <- read.csv("../analyses/CgR-blastp-spur.tab", header = FALSE, sep="\t") %>%
+  distinct(V1, .keep_all = TRUE)
+```
+
+
+```{r}
+head(spur)
+```
+
+
+```{r}
+ncbiP <- read.csv("../data/NcbiProteinEchinobaseGene_Spur.txt", header = FALSE, sep="\t")
+
+head(ncbiP)
+```
+```{r}
+library(fuzzyjoin)
+
+```
+
+
+
+```{r}
+betterspur <- spur %>% fuzzy_inner_join(ncbiP, by = "V2", match_fun = str_detect)
+
+```
+
+```{r}
+#spur %>% stringdist_inner_join(ncbiP, by = "V2", max_dist = 2)
+```
+
+
+
+```{r}
+write_tsv(
+  betterspur,
+  "../analyses/Spur-blastx-LOCsym.tab"
+)
+
+```
