@@ -8,7 +8,7 @@ library(tidyverse)
 ```
 
 ```{bash}
-head ../data/LOCID_38222_Roslin_Gigas_mito.txt
+wc -l ../data/LOCID_38222_Roslin_Gigas_mito.txt
 ```
 
 # Get fasta (proteins) that correspond to these LOC
