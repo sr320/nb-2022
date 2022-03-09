@@ -81,8 +81,18 @@ Spur_supptab <- left_join(comb, S3, by = c("spur_ID5" ="Row.names")) %>%
   left_join(S7hb, by = c("spur_ID5" ="Row.names")) %>%
   left_join(S7lg, by = c("spur_ID5" ="Row.names")) %>%
   left_join(S7mb, by = c("spur_ID5" ="Row.names")) %>%
-  left_join(S7mor, by = c("spur_ID5" ="Row.names"))
+  left_join(S7mor, by = c("spur_ID5" ="Row.names")) %>% 
+  group_by(LOC) %>% slice(which.min(up_evalue))
 ```
+
+
+```{r}
+Spur_supptab %>% group_by(LOC) %>% slice(which.min(up_evalue))
+```
+
+
+
+
 
 ```{r}
 write_tsv(
@@ -90,6 +100,14 @@ write_tsv(
   "../analyses/Cg_hits_SpurSupp.tab"
 )
 
+```
+
+
+
+
+
+```{bash}
+cat ../analyses/Cg_hits_SpurSupp.tab | cut -f1 | sort | uniq -c | wc -l
 ```
 
 
