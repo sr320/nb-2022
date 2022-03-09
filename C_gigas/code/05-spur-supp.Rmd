@@ -85,7 +85,7 @@ Spur_supptab <- left_join(comb, S3, by = c("spur_ID5" ="Row.names")) %>%
   group_by(LOC) %>% slice(which.min(up_evalue))
 ```
 
-
+d
 ```{r}
 Spur_supptab %>% group_by(LOC) %>% slice(which.min(up_evalue))
 ```
