@@ -83,3 +83,16 @@ Spur_supptab <- left_join(comb, S3, by = c("spur_ID5" ="Row.names")) %>%
   left_join(S7mb, by = c("spur_ID5" ="Row.names")) %>%
   left_join(S7mor, by = c("spur_ID5" ="Row.names"))
 ```
+
+```{r}
+write_tsv(
+  Spur_supptab,
+  "../analyses/Cg_hits_SpurSupp.tab"
+)
+
+```
+
+
+```{bash}
+awk 'NR > 1 {print $0}' ../analyses/Cg_hits_SpurSupp.tab | sort -k4,4 -k1,1 | awk '!array[$1]++' > ../analyses/Cg_hits-red_SpurSupp.tab
+```
