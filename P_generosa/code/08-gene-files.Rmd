@@ -1,0 +1,33 @@
+---
+title: "08-gene-files"
+output: html_document
+---
+
+Getting fasta files from the Genome annotation as opposed to version 5. 
+Will use getfasta..
+
+
+```{bash}
+cd ../data
+wget --no-check-certificate \
+https://gannet.fish.washington.edu/Atumefaciens/20190928_Pgenerosa_v074.a4_gensas_annotation/Panopea-generosa-vv0.74.a4.repeat_region.gff3
+```
+
+```{bash}
+head ../genome/Panopea-generosa-v1.0.fa
+```
+
+```{bash}
+head ../data/Panopea-generosa-vv0.74.a4.mRNA.gff3
+```
+
+
+
+
+```{bash}
+/home/shared/bedtools2/bin/bedtools getfasta \
+-fi ../genome/Panopea-generosa-v1.0.fa \
+-bed ../data/Panopea-generosa-vv0.74.a4.mRNA.gff3 \
+-fo ../analyses/Pg_v0.74.a4.mRNA.fa
+```
+
