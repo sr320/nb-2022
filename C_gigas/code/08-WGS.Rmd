@@ -1,0 +1,22 @@
+---
+title: "08-WGS"
+output: html_document
+---
+
+
+```{bash}
+
+for file in ../data/mapped_gigas_WGS/*bam
+  do
+  sample="$(basename -a $file | cut -d "." -f 1)"
+    echo ${sample}
+    /home/shared/bedtools2/bin/bedtools coverage \
+    -mean \
+    -sorted \
+    -a ../data/busco-single-copy.bed \
+    -b ../data/mapped_gigas_WGS/${sample}.bam \
+    > ../analyses/${sample}_bsc_cov.out
+done
+
+```
+
