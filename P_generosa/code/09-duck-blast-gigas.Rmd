@@ -1,0 +1,32 @@
+---
+title: "duck-blast-gigas"
+output: html_document
+---
+
+Taking geoduck gene set and comparing to gigas gene set
+
+
+duck gene set fasta?
+
+```{bash}
+cd ../data
+curl -O  https://gannet.fish.washington.edu/Atumefaciens/20220324-pgen-gffs_to_fastas/Panopea-generosa-v1.0.a4.gene.fasta
+```
+
+oyster data
+GCF_902806645.1_cgigas_uk_roslin_v1_translated_cds.faa
+
+Need to make blast DB of this..
+
+
+```{bash}
+/home/shared/ncbi-blast-2.11.0+/bin/tblastn \
+-task blastn \
+-query ../data/Panopea-generosa-v1.0.a4.gene.fasta \
+-db /home/shared/blast_dbs/20210613_ncbi_sp_v5/swissprot \
+-out ../analyses/duck-blastn-gigas.tab \
+-num_threads 20 \
+-max_target_seqs 1 \
+-max_hsps 1 \
+-outfmt "6 qaccver saccver evalue"
+```
