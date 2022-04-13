@@ -19,14 +19,49 @@ GCF_902806645.1_cgigas_uk_roslin_v1_translated_cds.faa
 Need to make blast DB of this..
 
 
+
 ```{bash}
-/home/shared/ncbi-blast-2.11.0+/bin/tblastn \
--task blastn \
+/home/shared/ncbi-blast-2.11.0+/bin/makeblastdb -h
+```
+
+```{bash}
+/home/shared/ncbi-blast-2.11.0+/bin/makeblastdb \
+-in /home/shared/8TB_HDD_01/sr320/github/nb-2022/blastdb/GCF_902806645.1_cgigas_uk_roslin_v1_translated_cds.faa \
+-dbtype prot \
+-out /home/shared/8TB_HDD_01/sr320/github/nb-2022/blastdb/roslin_v1_translated_cds
+```
+
+
+
+
+
+```{bash}
+/home/shared/ncbi-blast-2.11.0+/bin/blastx \
 -query ../data/Panopea-generosa-v1.0.a4.gene.fasta \
--db /home/shared/blast_dbs/20210613_ncbi_sp_v5/swissprot \
--out ../analyses/duck-blastn-gigas.tab \
+-db /home/shared/8TB_HDD_01/sr320/github/nb-2022/blastdb/roslin_v1_translated_cds \
+-out ../analyses/gene-duck-blastn-gigas.tab \
 -num_threads 20 \
 -max_target_seqs 1 \
 -max_hsps 1 \
 -outfmt "6 qaccver saccver evalue"
 ```
+
+
+
+Need to get some LOC numbers...
+
+
+
+```{r}
+library(tidyverse)
+```
+
+
+
+```{r}
+duck_gig <- read.csv("../analyses/gene-duck-blastx-gigas.tab", header = FALSE, sep="\t")  %>%
+  distinct(V1, .keep_all = TRUE)
+```
+
+
+
