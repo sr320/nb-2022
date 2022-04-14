@@ -59,9 +59,22 @@ library(tidyverse)
 
 
 ```{r}
-duck_gig <- read.csv("../analyses/gene-duck-blastx-gigas.tab", header = FALSE, sep="\t")  %>%
-  distinct(V1, .keep_all = TRUE)
+duck_gig <- read.csv("../analyses/gene-duck-blastx-gigas.tab", header = FALSE, sep="\t")
 ```
 
 
 
+```{r}
+gigloc <- read.csv("../../C_gigas/analyses/LOC_Acc.tab", header = FALSE, sep=" ")  %>%
+  distinct(V1, .keep_all = TRUE)
+```
+
+```{r}
+library(fuzzyjoin)
+```
+
+
+
+```{r}
+ducknloc <- fuzzy_inner_join(duck_gig, gigloc, by = "V2", match_fun = str_detect)
+```
